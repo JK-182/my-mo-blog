@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block specie %}Post Microorganism{% endblock %}
+{% block content %}
+
+
+
+{% if user.is_authenticated %}
+
+	<h1>Post Microorganism</h1>
+	<br/><br/>
+
+	<div class="form-group">
+		<form method="POST">
+			{% csrf_token %}
+			{{ form.media }}
+			{{ form.as_p }} 
+			<button class="btn btn-secondary"> Post</button>
+	</div>
+
+
+	<script>
+		var name = "{{ user.id }}";
+		document.getElementById("user").value = name;
+
+
+
+	</script>
+{% else %}
+
+You have to log in.
+
+
+{% endif %}
+
+
+
+{% endblock %}
